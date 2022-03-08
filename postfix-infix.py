@@ -2,18 +2,15 @@
 def postfixToInfix(postfix):
     stack = []
 
-    i = len(postfix) - 1
-    while i >= 0:
+    for i in range(len(postfix)):
         if not isOperator(postfix[i]):
 
             stack.append(postfix[i])
-            i -= 1
         else:
             a = stack.pop()
             b = stack.pop()
             s = "(" + b + postfix[i] + a + ")"
             stack.append(s)
-            i -= 1
 
     return stack.pop()
 

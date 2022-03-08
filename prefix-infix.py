@@ -2,17 +2,15 @@
 def prefixToInfix(prefix):
     stack = []
 
-    i = len(prefix) - 1
-    while i >= 0:
+    for i in range(len(prefix)):
         if not isOperator(prefix[i]):
 
             stack.append(prefix[i])
-            i -= 1
         else:
-
-            str = "(" + stack.pop() + prefix[i] + stack.pop() + ")"
+            a = stack.pop()
+            b = stack.pop()
+            str = "(" + a + prefix[i] + b + ")"
             stack.append(str)
-            i -= 1
 
     return stack.pop()
 
